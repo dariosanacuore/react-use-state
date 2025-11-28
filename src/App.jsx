@@ -1,24 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { languages } from "./assets/languages.js"
+import { useState } from "react";
+import { languages } from "./assets/languages.js";
+import "./App.css";
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [selected, setSelected] = useState(null);
+
+  function showLanguage(id) {
+
+    let lang = null;
+
+    for (let i = 0; i < languages.length; i++) {
+      if (languages[i].id === id) {
+        lang = languages[i];
+      }
+    }
+
+    setSelected(lang);
+  }
 
   return (
-    <>
-      <ul>
-        <li><button>HTML</button></li>
-        <li><button>CSS</button></li>
-        <li><button>Javascript</button></li>
-        <li><button>Node.js</button></li>
-        <li><button>Express</button></li>
-        <li><button>ReactJS</button></li>
+    <div>
+      <ul className="listItem">
+        {languages.map(function (lang) {
+          return (
+            <li key={lang.id}>
+              <button className="btn" onClick={function () { showLanguage(lang.id) }}>
+                {lang.title}
+              </button>
+            </li>
+          );
+        })}
       </ul>
-    </>
-  )
+
+      {selected && (
+        <div>
+          <h2>{selected.title}</h2>
+          <p>{selected.description}</p>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
+

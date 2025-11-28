@@ -4,9 +4,17 @@
   box-sizing: border-box;
 }
 
-ul {
-  list-style-type: none;
+.listItem {
+  margin-top: 100px;
   display: flex;
+  gap: 60px;
   justify-content: center;
-  gap: 40px;
+  list-style-type: none;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: blue;
+  color: white;
 }
