@@ -9,7 +9,14 @@ function App() {
 
   return (
     <>
-
+      <ul>
+        <li><button>HTML</button></li>
+        <li><button>CSS</button></li>
+        <li><button>Javascript</button></li>
+        <li><button>Node.js</button></li>
+        <li><button>Express</button></li>
+        <li><button>ReactJS</button></li>
+      </ul>
     </>
   )
 }
